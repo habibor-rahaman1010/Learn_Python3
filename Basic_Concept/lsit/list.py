@@ -19,3 +19,6 @@ print(numbers[7:2:-2])
 print(numbers[7:])
 print(numbers[:5])
 print(numbers[:])
+print(numbers[::-1])
+print(numbers[::-2])
+
