@@ -26,7 +26,7 @@ for num in numbers:
     sum += num
 print(f'Total sum of array: {sum}')
 
-#loop thropt in a string
+#loop throughout in a string
 text = "Hello programmer how can i help you"
 for t in text:
     print(t)
@@ -37,3 +37,7 @@ for num in numbers:
     if(max < num):
         max = num
 print(f'Max value in array: {max}')
+
+#index and value get in this process
+for index, value in enumerate(numbers):
+    print(f'{index} : {value}')
