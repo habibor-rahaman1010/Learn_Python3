@@ -19,9 +19,18 @@ def doubleIt(num1, num2):
     return (num1, num2) #return tuple
 
 
+def sum(num, num2, num3):
+    sum = num + num2 + num3
+    return [sum]
+
 # all function call here
 myName()
 name = "Habibor Rahaman"
 giveNmae(name)
 print(retunName(name))
 print(doubleIt(23, 25))
+print(sum(3, 2, 4))
+
+#string list convert to number
+age = ["12", "-23", "18", "15", "20"]
+print([int(x) for x in age])
