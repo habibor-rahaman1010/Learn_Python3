@@ -1,2 +1,2 @@
 #while loop in python program....
-py = 100
+initial = 0
