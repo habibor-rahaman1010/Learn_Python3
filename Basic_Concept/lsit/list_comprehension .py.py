@@ -21,3 +21,19 @@ print(odd)
 #sort way to findout even number in list
 even = [int(num) for num in numbers if(num % 2 == 1)]
 print(even)
+
+
+#nested for loop in python
+players = ["Sakib", "Misfiq", "Liton"]
+ages = [38, 35, 31]
+
+player_comb = []
+for player in players:
+    for age in ages:
+        player_comb.append([player, age])
+
+print(player_comb)
+
+#sort way to nested loop in python program...
+player_comb2 = [[player, age] for player in players for age in ages]
+print(player_comb2)
