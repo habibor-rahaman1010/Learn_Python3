@@ -1,0 +1,1 @@
+# loacl and global scope in python program
