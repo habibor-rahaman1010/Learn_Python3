@@ -22,6 +22,6 @@ def findMaxValue(arr):
 def findMinValue(arr):
     min = arr[0]
     for x in arr:
-        if(min < x):
+        if(min > x):
             min = x
     return min
