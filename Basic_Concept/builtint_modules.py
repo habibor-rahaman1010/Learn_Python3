@@ -4,6 +4,9 @@ import uuid
 from random import *
 from math import *
 from datetime import *
+from time import *
+import datetime
+import turtle
 
 
 name = b'Habibor Rahaman'
@@ -18,5 +21,13 @@ rand = random() * 100
 print(floor(rand))
 print(randint(1, 1000))
 
+sleep(2)
 choes = choice(['Habibor Rahaman', 'wahidur rahaman', 'rifat', 'arafat', 'shawon'])
 print(choes)
+
+x = datetime.datetime.now()
+print(x.strftime("%A: %D : %I:%M:%S"))
+
+
+turtle.forward(100)
+turtle.exitonclick()
