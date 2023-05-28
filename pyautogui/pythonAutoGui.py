@@ -2,7 +2,8 @@ import pyautogui
 from time import *
 
 sleep(5)
-pyautogui.write('#Hello i cam from piautogui', interval=.12)
-pyautogui.press('enter')
+text = 'What is Lorem Ipsum?'
 
-#Hello i cam from piautogui
+for i in range(3):
+    pyautogui.write(text, interval=.10)
+    pyautogui.press('enter')
