@@ -1,11 +1,11 @@
 #string manipulation in python
 
 name = "Habibor Rahaman"
-coluigeName = 'Tamim Sahriar Subeen\'s'
+coluigeName = 'tamim Sahriar Subeen\'s'
 text = """
 I'm a programmer. how can i help you.
     I learn python right now.
-        i have to know many programming laguage.
+        I have to know many programming laguage.
 """
 
 print(name)
@@ -30,3 +30,11 @@ print(name[0:-7])
 print(name[::])
 print(name[:5])
 print(name[5:])
+
+print(text.upper())
+print(coluigeName.capitalize())
+print(text.lower())
+
+h = "hello"
+w = "world"
+print(h + " " + w)
