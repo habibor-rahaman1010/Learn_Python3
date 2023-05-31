@@ -13,19 +13,19 @@ class Bank:
         if(amount > 0):
             self.balance += amount
             print(f'diposited: {amount}')
-            print(f'Current balance: {self.balance}')
+            print(f'Current balance: {self.get_balance()}')
         else:
             print(f'Please enter positive number!')
 
 
     def withdraw(self, amount):
         if(amount > self.balance):
-            print(f'Your withdraw blance {amount} is bigger then current balance {self.balance}, you have can not withdraw!')
+            print(f'Your withdraw blance {amount} is bigger then current balance {self.get_balance()}, you have can not withdraw!')
         else:
             if(amount >= self.min_withdraw and amount <= self.max_withdraw):
                 self.balance -= amount
                 print(f'Withdraw amount: {amount}')
-                print(f'Current balance: {self.balance}')
+                print(f'Current balance: {self.get_balance()}')
             else:
                 print(f'You have minimum withdraw: {self.min_withdraw} and maximum withdraw: {self.max_withdraw}')
 
