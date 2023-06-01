@@ -32,7 +32,7 @@ artist = [
 ]
 
 allArtist = map(lambda x : x, artist)
-print(list(artist))
+print(list(allArtist))
 
 youngArtist = filter(lambda x : x['age'] < 30, artist)
 print(list(youngArtist))
