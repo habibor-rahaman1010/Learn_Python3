@@ -40,20 +40,32 @@ class School:
         self.teachers.append(teacher)
 
     def enroll(self, name, student_class, status, fee):
-        if(fee <= 6500):
-            print(f'not enough fee, you need {6500 - fee} more')
+        if(fee < 6500):
+            print(f'student {name} not enough fee, you need {6500 - fee} more')
         else:
             id = len(self.students) + 1
             student = Student(id, name, student_class, status)
-            student.__dict__['fees'] = fee
+            extra = fee - 6500
+            student.__dict__['fees'] = fee - extra
             self.students.append(student.__dict__)
-            print(f'Student enrolled success, here your exatra mony returned: {fee - 6500}')
+            print(f'Student {student.name} enrolled success, here your exatra mony returned: {fee - 6500}')
 
+    def __repr__(self) -> str:
+        print(f'-----------------Welcome to {self.name}-----------------')
 
+        print(f'----------------Ouer teachers---------------------')
+        for teacher in self.teachers:
+            print(teacher)
 
+        print(f'----------------Ouer students---------------------')
+        for student in self.students:
+            print(student)
+        return 'All done for now'
 
+# starting object created here 
 student = Student('144369', 'Habibor Rahaman', 'Bsc in CSE', 'student')
 teacher = Teacher('672736', 'guido van russam', 'python programming language', 'teacher')
+
 print(student.__dict__)
 print(teacher.__dict__)
 
@@ -67,6 +79,11 @@ for key, value in teacher.__dict__.items():
 
 school = School('Bright school')
 school.add_teacher(123123, 'Habibor Rahaman', 'Data Stucture', 'CSE Teacher')
-school.enroll('Habibor Rahaman', 'Bsc in CSE', 'student', 6700)
-print(school.teachers)
-print(school.students)
+school.add_teacher(123123, 'Apurbo shaha', 'Data Stucture', 'CSE Teacher')
+school.add_teacher(123123, 'Mahir Shahriar', 'Algorithm', 'CSE Teacher')
+
+school.enroll('Habibor Rahaman', 'Bsc in CSE', 'student', 6900)
+school.enroll('Abdue Rahaman Rifat', 'Bsc in EEE', 'student', 6700)
+school.enroll('Arafat shuvo', 'Bsc in EEE', 'student', 6500)
+
+print(school)
