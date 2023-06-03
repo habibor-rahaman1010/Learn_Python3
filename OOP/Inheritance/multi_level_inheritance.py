@@ -37,3 +37,21 @@ class VipBus(AcciBus):
         self.security = security
         self.enginType = enginType
         super().__init__(name, price, origin, color, seat, wifi, temperature, ticket)
+
+    def __repr__(self) -> str:
+        return repr({
+            'name': self.name,
+            'price': self.price,
+            'origin': self.origin,
+            'color': self.color,
+            'seat': self.seat,
+            'wifi': self.wifi,
+            'temperature': self.temperature,
+            'ticket': self.ticket,
+            'security': self.security,
+            'enginType': self.enginType,
+        })
+
+
+greenLine = VipBus('Green Line', 7500000, 'Bangladesh', 'green and silver', 25, True, '18 digree', True, True, 'Diesel')
+print(greenLine)
