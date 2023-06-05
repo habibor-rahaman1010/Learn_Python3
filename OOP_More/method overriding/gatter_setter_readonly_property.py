@@ -17,12 +17,22 @@ class User:
         return self.___email
     
     @property
-    def balnce(self):
+    def balance(self):
         return self.__balance
+    
+    @balance.setter
+    def balance(self, value):
+        if value < 0:
+            print(f'salary can not be nagative') 
+        else:
+            self.__balance += value
+
 
 
 
 habib = User('144369', 'Habibor Rahaman', 'h23989f783', 33680, 'habibor.rahaman1010@gmail.com')
 print(habib.id)
 print(habib.email)
-print(habib.balnce)
+print(habib.balance)
+habib.balance = 4404
+print(habib.balance)
