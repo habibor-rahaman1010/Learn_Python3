@@ -1,57 +1,42 @@
-# Restaurant system implement in python programming language
 
-from abc import ABC, abstractmethod
-
-class User(ABC):
-    def __init__(self, name, phone, email, address, nid) -> None:
+class Restaurant:
+    def __init__(self, name, rent, menu = []) -> None:
         self.name = name
-        self.phone = phone
-        self.email = email
-        self.address = address
-        self.nid = nid
+        self.chef = None
+        self.server = None
+        self.manager = None
+        self.rent = rent
+        self.menu = menu
+        self.revenue = 0
+        self.expense = 0
+        self.balance = 0
+        self.profit = 0
 
-class Customer(User):
-    def __init__(self, name, phone, email, address, nid, mony) -> None:
-        self.wallet = mony
-        self.__order = None
-        super().__init__(name, phone, email, address, nid,)
+    def add_employee(self, employee_type, employee):
+        if (employee_type == 'chef'):
+            self.chef = employee
 
-    @property
-    def order(self):
-        return self.__order
-    
-    @order.setter
-    def order(self, order):
-        self.__order = order
+        if(employee_type == 'server'):
+            self.server = employee
 
-    def place_order(self, order):
-        self.order = order
-        print(f'{self.name} placed an order: {order.items}')
+        if(employee_type == 'manager'):
+            self.manager = employee
 
-    def eat_food(self, order):
-        print(f'{self.name} eating food {order.items}')
+    def receive_payment(self, order, amount, customer):
+        if(amount >= order.bill):
+            self.revenue += order.bill
+            self.balance += order.bill
+            customer.due_amount = 0
+            return amount - order.bill
+        
+    def pay_expense(self, amount, description):
+        if amount < self.balance:
+            self.expense += amount
+            self.balance -= amount
+            print(f'Expense: {amount} for {description}')
+        else:
+            print(f'Not enough mony to pay {amount}')
 
-    def pay_for_order(self, amount):
-        pass
-
-    def give_tips(self, tips_amount):
-        pass
-
-    def write_review(self, stars):
-        pass
-
-class Employee(User):
-    def __init__(self, name, phone, email, address, nid, salary, starting_date, department, ) -> None:
-        super().__init__(name, phone, email, address, nid)
-        self.salary = salary
-        self.starting_date = starting_date
-        self.department = department
-
-class Chef(Employee):
-    def __init__(self, name, phone, email, address, nid, salary, starting_date, department, cooking_item) -> None:
-        super().__init__(name, phone, email, address, nid, salary, starting_date, department)
-        self.cooking_item = cooking_item
-
-class Server(Employee):
-    def __init__(self, name, phone, email, address, nid, salary, starting_date, department) -> None:
-        super().__init__(name, phone, email, address, nid, salary, starting_date, department)
+    def pay_salary(self, employee):
+        if (employee.salary < self.balance):
+            employee.receive_salary()
