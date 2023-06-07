@@ -1,6 +1,7 @@
 from Menu import Pizza, Burger, Drinks, Menu
 from Restaurant import Restaurant
 from Users import Chef, Customer, Server, Manager
+from Order import Order
 
 
 def main():
@@ -40,7 +41,38 @@ def main():
     restaurant.add_employee('chef', chef)
 
     server = Server('rifat', '013898342', 'rifat12@gmail.com', 'wari', '728373821', 23000, '1 march', 'food delivary')
-    restaurant.add_employee(server)
+    restaurant.add_employee('server', server)
+
+    # show employees
+    restaurant.show_employee()
+
+    # add couster 1 and placing an order
+    customer_1 = Customer('Arafat', '0178237823', 'arafat12@gmail.com', 'zurain', '912120938', 2300)
+    order_1 = Order(customer_1, [pizza_1, coffe])
+    customer_1.place_order(order_1)
+    restaurant.add_order(order_1)
+
+    #customer 1 paying for order_1
+    restaurant.receive_payment(order_1, 1350, customer_1)
+    print(f'revenue: {restaurant.revenue} and balance: {restaurant.balance}')
+
+
+    # add couster 1 and placing an order
+    customer_2 = Customer('rifta', '01882392374', 'refat2156@gmail.com', 'wari', '92389823', 5300)
+    order_2 = Order(customer_2, [pizza_3, drink_1, coffe, burger_1])
+    customer_2.place_order(order_2)
+    restaurant.add_order(order_2)
+    
+    #customer 2 paying for order_2
+    restaurant.receive_payment(order_2, 1726, customer_2)
+    print(f'revenue: {restaurant.revenue} and balance: {restaurant.balance} expense: {restaurant.expense}')
+
+    #pay rent
+    restaurant.pay_expense(restaurant.rent, 'rent')
+    print(f'After rent revenue: {restaurant.revenue} and balance: {restaurant.balance} expense: {restaurant.expense}')
+
+    restaurant.pay_salary(chef)
+    print(f'After salary: {restaurant.revenue} and balance: {restaurant.balance} expense: {restaurant.expense}')
 
 if __name__ == '__main__':
     main()
