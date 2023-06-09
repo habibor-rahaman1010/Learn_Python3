@@ -30,7 +30,7 @@ class User:
         if(amount < 0):
             print(f'You can not {0} or nagative value {amount} withdraw')
         elif(amount > self.__balance):
-            print(f'You can not {amount} withdraw beacuse {amount} is bigger then {self.balance}')
+            print(f'You can not {amount} withdraw beacuse {amount} is bigger then {self.__balance}')
         else:
             self.__balance -= amount
             history = History(self.name, self.check_available_balance(), amount, 0)
@@ -38,6 +38,12 @@ class User:
 
     def check_available_balance(self):
         return self.__balance
+    
+    def set_user_blance(self, amount):
+        self.__balance += amount
+
+    def get_account_type(self):
+        return self.__account_type
     
     def transfer_amount(self, amount, from_user, to_user):
         if(amount < 0):
@@ -53,5 +59,3 @@ class User:
     def transaction_history(self):
         for x in self._history:
             print(f'name: {x.name}, amoutn: {x.amount} withdraw: {x.widthraw} diposit: {x.diposit} transfer: {x.transfer}')
-
-
