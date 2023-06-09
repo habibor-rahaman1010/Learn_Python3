@@ -19,6 +19,15 @@ def Main():
     asia = Bank('Bank Asia', 'bankasia12@gmail.com', 'shirajdikhan, Munshigonj')
     asia.add_user(user_1)
     asia.add_user(user_2)
+
+    #history chaking here
+    user_1.withdraw(30)
+    user_2.withdraw(50)
+    user_2.withdraw(700)
+    user_2.deposit(1700)
+    user_2.transaction_history()
+    user_1.transaction_history()
+   
   
 
 if __name__ == '__main__':

@@ -1,4 +1,6 @@
 # Create a banking management system using python OOP in this project...
+from History import History
+from Bank import Bank
 
 # create a user class here
 class User:
@@ -9,12 +11,15 @@ class User:
         self.__password = password
         self.__account_type = account_type
         self.__balance = 0
+        self._history = []
     
     def deposit(self, amount):
         if(amount < 0):
             print(f'You are given {0} or nagative value {amount}')
         else:
             self.__balance += amount
+            history = History(self.name, self.check_available_balance(), 0, amount, 0)
+            self._history.append(history)
     
     # this is my user created function
     def create_user_account(self, unique_id, name, email, password, account_type):
@@ -24,10 +29,12 @@ class User:
     def withdraw(self, amount):
         if(amount < 0):
             print(f'You can not {0} or nagative value {amount} withdraw')
-        elif(amount > self.balance):
+        elif(amount > self.__balance):
             print(f'You can not {amount} withdraw beacuse {amount} is bigger then {self.balance}')
         else:
             self.__balance -= amount
+            history = History(self.name, self.check_available_balance(), amount, 0)
+            self._history.append(history)
 
     def check_available_balance(self):
         return self.__balance
@@ -40,13 +47,11 @@ class User:
         else:
             to_user.__balance += amount
             from_user.__balance -= amount
+            history = History(self.name, self.check_available_balance(), 0, 0, amount)
+            self._history.append(history)
 
-
-
-
-
-
-
-
+    def transaction_history(self):
+        for x in self._history:
+            print(f'name: {x.name}, amoutn: {x.amount} withdraw: {x.widthraw} diposit: {x.diposit} transfer: {x.transfer}')
 
 

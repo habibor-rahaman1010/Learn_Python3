@@ -7,9 +7,12 @@ class Bank:
         self.address = address
         self.users = []
         self.admins = []
-        self.__total_blance = 3560380
+        self.__total_blance = 10000
         self.__loan_amount = 0
 
     def add_user(self, user):
         self.users.append(user)
+
+    
+    
 
